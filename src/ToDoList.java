@@ -1,3 +1,7 @@
+package src;
+
+import java.util.Scanner;
+
 public class ToDoList {
     private User user;
     private boolean isRunning;
@@ -87,6 +91,7 @@ public class ToDoList {
         System.out.print("Enter the description of the item: ");
         Scanner scanner = new Scanner(System.in);
         String description = scanner.nextLine();
+        user.getToDoItems().add(new ToDoItem(description));
         // TODO Now: Call the add(ToDoItem item) method of the user's to-do items list to add a new item
     }
 
@@ -98,6 +103,7 @@ public class ToDoList {
         System.out.print("Enter the number of the item to mark as done: ");
         Scanner scanner = new Scanner(System.in);
         int itemNumber = scanner.nextInt();
+        user.getToDoItems().get(itemNumber).setDone(true);
         // TODO Now: Set the isDone field of the item at the specified index to true
     }
 
@@ -109,6 +115,7 @@ public class ToDoList {
         System.out.print("Enter the number of the item to mark as undone: ");
         Scanner scanner = new Scanner(System.in);
         int itemNumber = scanner.nextInt();
+        user.getToDoItems().get(itemNumber).setDone(false);
         // TODO Now: Set the isDone field of the item at the specified index to false
     }
 
@@ -120,6 +127,7 @@ public class ToDoList {
         System.out.print("Enter the number of the item to delete: ");
         Scanner scanner = new Scanner(System.in);
         int itemNumber = scanner.nextInt();
+        user.getToDoItems().remove(itemNumber);
         // TODO Now: Remove the item at the specified index from the user's to-do items list
     }
 
